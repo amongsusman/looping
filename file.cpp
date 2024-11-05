@@ -10,29 +10,31 @@ Extra: Using C++ vector
 using namespace std;
 int main() {
     // Exercise 1:
+    // Extra:
     vector<string> quotes;
     string days[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
     string cur;
-    string empty;
     for (int i = 0; i < 7; i++) {
         cout << "Enter a motivational quote for " + days[i] + "!" << endl;
         getline(cin, cur);
         quotes.push_back(cur);
     }
     for (int i = 0; i < 7; i++) {
+        // prints out the quote that you entered for a certain day once all quotes have been entered
         cout << quotes[i] << endl;
     }
-    cin >> empty;
     // Exercise 2:
-    int energy = 0;
+    int energy = 5;
     int supplies = 0;
     int action;
+    // while loop that runs while the energy is greater than 0 and the supplies are less than 10
     while (energy > 0 && supplies < 10) {
         cout << "Choose an action." << endl;
         cout << "1: Search for supplies (1 energy cost, 1 supply added)" << endl;
         cout << "2: Rest (restores 2 energy, no supplies added)" << endl;
         cin >> action;
         if (action == 1) {
+            // subtracts 1 energy and adds 1 supply
             energy--;
             supplies++;
         }
@@ -70,6 +72,11 @@ int main() {
                 cout << "Box remains locked." << endl;
                 break;
             }
+            else {
+                // error trap to check if user didn't enter valid options
+                cout << "Well, I'm assuming you want to continue then." << endl;
+                continue;
+            }
         }
-    } while (true);
+    } while (true); // runs until do-while loop has been broken by guessing the code correctly
 }
